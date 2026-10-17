@@ -1,0 +1,22 @@
+{
+  "Select project folder": "Select project folder",
+  "Adding projects from git repositories not yet supported.\n Please clone the repository and use `Add documentation project from the filesystem` command.": "Adding projects from git repositories not yet supported.\n Please clone the repository and use `Add documentation project from the filesystem` command.",
+  "mdoc couldn't save 'projects.json'": "mdoc couldn't save 'projects.json'",
+  "Retry": "Retry",
+  "pull was terminated by signal {0}": "pull was terminated by signal {0}",
+  "'git remote get-url origin' was terminated by signal {0}": "'git remote get-url origin' was terminated by signal {0}",
+  "searchHelp.md": "searchHelp.md",
+  "document URL": "document URL",
+  "Open document": "Open document",
+  "Cannot find file '{0}'": "Cannot find file '{0}'",
+  "Couldn't update project. {0}": "Couldn't update project. {0}",
+  "Search": "Search",
+  "Can't open document '{0}' in '{1}'": "Can't open document '{0}' in '{1}'",
+  "In this document": "In this document",
+  "copy url": "copy url",
+  "mdoc viewer": "mdoc viewer",
+  "loading...": "loading...",
+  "1 result": "1 result",
+  "{0} results": "{0} results",
+  "Open search": "Open search"
+}

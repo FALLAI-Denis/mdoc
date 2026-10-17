@@ -1,0 +1,14 @@
+{
+  "mdoc.add.fromFilesystem.title": "Add documentation project from the filesystem",
+  "mdoc.add.fromGit.title": "Add documentation project from git repository",
+  "mdoc.open.title": "Open document",
+  "mdoc.openSourceFromSidebar.title": "Open document source",
+  "mdoc.openIndexFromSidebar.title": "Open `index.md`",
+  "mdoc.project.update.title": "Update project",
+  "mdoc.project.search.title": "Search in project",
+  "mdoc.project.closeSearch.title": "Close search",
+  "mdoc.project.remove.title": "Remove project",
+  "mdoc.activitybar.title": "Documentations",
+  "mdoc.view.mdoc.name": "Projects",
+  "mdoc.view.mdocProjects.content": "No documentation projects added.\n[Add project from filesystem](command:mdoc.add.fromFilesystem)"
+}

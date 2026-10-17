@@ -1,0 +1,14 @@
+{
+  "mdoc.add.fromFilesystem.title": "Ajouter un projet de documentation depuis le système de fichiers",
+  "mdoc.add.fromGit.title": "Ajouter un projet de documentation depuis un dépôt Git",
+  "mdoc.open.title": "Ouvrir le document",
+  "mdoc.openSourceFromSidebar.title": "Ouvrir la source du document",
+  "mdoc.openIndexFromSidebar.title": "Ouvrir `index.md`",
+  "mdoc.project.update.title": "Mettre à jour le projet",
+  "mdoc.project.search.title": "Rechercher dans le projet",
+  "mdoc.project.closeSearch.title": "Fermer la recherche",
+  "mdoc.project.remove.title": "Retirer le projet",
+  "mdoc.activitybar.title": "Documentations",
+  "mdoc.view.mdoc.name": "Projets",
+  "mdoc.view.mdocProjects.content": "Aucun projet de documentation ajouté.\n[Ajouter un projet depuis le système de fichiers](command:mdoc.add.fromFilesystem)"
+}
