@@ -54,17 +54,20 @@ export function deactivate() {
 }
 
 function registerCommands(context: vscode.ExtensionContext) {
-	context.subscriptions.push(vscode.commands.registerCommand("mdoc.add.fromFilesystem", async () => {
-		const result = await vscode.window.showOpenDialog({ canSelectFolders: true, canSelectFiles: false, openLabel: vscode.l10n.t("Select project folder") });
-		if (result && result.length === 1) {
-			const projectUri = result[0];
-			docProjects.addProject({ uri: projectUri.toString() });
-			const source = new GitSource(projectUri.toString());
-			docViewer.addProject(source);
-		}
-	}));
-
-	context.subscriptions.push(vscode.commands.registerCommand("mdoc.add.fromGit", async () => {
-		vscode.window.showInformationMessage(vscode.l10n.t("Adding projects from git repositories not yet supported.\n Please clone the repository and use `Add documentation project from the filesystem` command."));
-	}));
+	context.subscriptions.push(
+		// Add documentation project from the filesystem
+		vscode.commands.registerCommand("mdoc.add.fromFilesystem", async () => {
+			const result = await vscode.window.showOpenDialog({ canSelectFolders: true, canSelectFiles: false, openLabel: vscode.l10n.t("Select handbook folder") });
+			if (result && result.length === 1) {
+				const projectUri = result[0];
+				docProjects.addProject({ uri: projectUri.toString() });
+				const source = new GitSource(projectUri.toString());
+				docViewer.addProject(source);
+			}
+		}),
+		// Add documentation project from git repository
+		vscode.commands.registerCommand("mdoc.add.fromGit", async () => {
+			vscode.window.showInformationMessage(vscode.l10n.t("Adding handbooks from git repositories not yet supported.\n Please clone the repository and use `Add handbook from the filesystem` command."));
+		})
+	);
 }

@@ -11,5 +11,3 @@ vsc-extension-quickstart.md
 node_modules/**
 **/esbuild.*
 **/eslint.*
-img/**
-README.md

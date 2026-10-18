@@ -2,7 +2,7 @@
 	"name": "mdoc",
 	"displayName": "mdoc - Markdown Documentation Viewer",
 	"description": "markdown documentation viewer for Visual Studio Code",
-	"version": "1.6.0",
+	"version": "1.6.0-prerelease",
 	"publisher": "bxantus",
 	"repository": {
 		"type": "git",
@@ -55,19 +55,6 @@
 				"category": "mdoc"
 			},
 			{
-				"command": "mdoc.open",
-				"title": "%mdoc.open.title%",
-				"category": "mdoc"
-			},
-			{
-				"command": "mdoc.openSourceFromSidebar",
-				"title": "%mdoc.openSourceFromSidebar.title%"
-			},
-			{
-				"command": "mdoc.openIndexFromSidebar",
-				"title": "%mdoc.openIndexFromSidebar.title%"
-			},
-			{
 				"command": "mdoc.project.update",
 				"title": "%mdoc.project.update.title%",
 				"icon": "$(sync)"
@@ -85,6 +72,19 @@
 			{
 				"command": "mdoc.project.remove",
 				"title": "%mdoc.project.remove.title%"
+			},
+			{
+				"command": "mdoc.open",
+				"title": "%mdoc.open.title%",
+				"category": "mdoc"
+			},
+			{
+				"command": "mdoc.openSourceFromSidebar",
+				"title": "%mdoc.openSourceFromSidebar.title%"
+			},
+			{
+				"command": "mdoc.openIndexFromSidebar",
+				"title": "%mdoc.openIndexFromSidebar.title%"
 			}
 		],
 		"menus": {
@@ -171,31 +171,35 @@
 		]
 	},
 	"scripts": {
+		"check-types": "tsc --noEmit",
 		"clean": "rimraf out",
-		"vscode:prepublish": "npm run package",
 		"compile": "npm run check-types && npm run lint && node esbuild.js",
+		"compile-tests": "tsc -p . --outDir out",
+		"l10n": "npx @vscode/l10n-dev export --outDir ./l10n ./src",
+		"lint": "eslint src",
+		"package": "npm run clean && npm run check-types && npm run lint && node esbuild.js --production",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"test": "vscode-test",
+		"vscode:prepublish": "npm run package",
 		"watch": "npm-run-all -p watch:*",
 		"watch:esbuild": "node esbuild.js --watch",
-		"watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-		"package": "npm run clean && npm run check-types && npm run lint && node esbuild.js --production",
-		"compile-tests": "tsc -p . --outDir out",
 		"watch-tests": "tsc -p . -w --outDir out",
-		"pretest": "npm run compile-tests && npm run compile && npm run lint",
-		"check-types": "tsc --noEmit",
-		"lint": "eslint src",
-		"test": "vscode-test"
+		"watch:tsc": "tsc --noEmit --watch --project tsconfig.json"
 	},
 	"devDependencies": {
-		"@types/glob": "^7.1.1",
+		"@eslint/js": "^10.0.1",
+		"@stylistic/eslint-plugin": "^5.10.0",
 		"@types/lunr": "^2.3.3",
+		"@types/mark.js": "^8.11.12",
 		"@types/mocha": "^7.0.2",
-		"@types/node": "^22.13.14",
+		"@types/node": "^24.0.0",
 		"@types/node-fetch": "^2.6.13",
 		"@types/vscode": "^1.73.0",
+		"@types/vscode-webview": "^1.57.5",
 		"@vscode/l10n-dev": "^0.0.35",
-		"@vscode/test-cli": "^0.0.11",
-		"@vscode/test-electron": "^2.5.2",
-		"@vscode/vsce": "^3.3.2",
+		"@vscode/test-cli": "^0.0.15",
+		"@vscode/test-electron": "^3.1.0",
+		"@vscode/vsce": "^4.0.0",
 		"esbuild": "^0.28.2",
 		"eslint": "^10.13.0",
 		"glob": "^13.0.6",

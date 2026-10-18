@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { joinPath, normalizeMdocPath } from '../util/uri';
+import { joinPath, normalizeMdocPath } from '../main/util/uri';
 import assert from 'assert';
 
 describe('URI Utils', () => {

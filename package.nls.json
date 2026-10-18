@@ -1,14 +1,14 @@
 {
-  "mdoc.add.fromFilesystem.title": "Add documentation project from the filesystem",
-  "mdoc.add.fromGit.title": "Add documentation project from git repository",
-  "mdoc.open.title": "Open document",
-  "mdoc.openSourceFromSidebar.title": "Open document source",
-  "mdoc.openIndexFromSidebar.title": "Open `index.md`",
-  "mdoc.project.update.title": "Update project",
-  "mdoc.project.search.title": "Search in project",
+  "mdoc.add.fromFilesystem.title": "Add handbook from the filesystem",
+  "mdoc.add.fromGit.title": "Add handbook from git repository",
+  "mdoc.project.update.title": "Update handbook",
+  "mdoc.project.search.title": "Search in handbook",
   "mdoc.project.closeSearch.title": "Close search",
-  "mdoc.project.remove.title": "Remove project",
+  "mdoc.project.remove.title": "Remove handbook",
+  "mdoc.open.title": "Open page",
+  "mdoc.openSourceFromSidebar.title": "Open page file",
+  "mdoc.openIndexFromSidebar.title": "Open `index.md`",
   "mdoc.activitybar.title": "Documentations",
-  "mdoc.view.mdoc.name": "Projects",
-  "mdoc.view.mdocProjects.content": "No documentation projects added.\n[Add project from filesystem](command:mdoc.add.fromFilesystem)"
+  "mdoc.view.mdoc.name": "Handbooks",
+  "mdoc.view.mdocProjects.content": "No handbook added.\n[Add handbook from the filesystem](command:mdoc.add.fromFilesystem)"
 }

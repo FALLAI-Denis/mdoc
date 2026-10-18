@@ -23,11 +23,9 @@ const esbuildProblemMatcherPlugin = {
 	},
 };
 
-async function main() {
-	const ctx = await esbuild.context({
-		entryPoints: [
-			'src/extension.ts'
-		],
+async function buildExtension(ctxMode) {
+	return esbuild.context({
+		entryPoints: ['src/main/extension.ts'],
 		bundle: true,
 		format: 'cjs',
 		minify: production,
@@ -42,11 +40,62 @@ async function main() {
 			esbuildProblemMatcherPlugin,
 		],
 	});
+}
+
+async function buildViewer(ctxMode) {
+	return esbuild.context({
+		entryPoints: ['src/www/viewer.ts'],
+		bundle: true,
+		format: 'iife',
+		minify: production,
+		sourcemap: !production,
+		sourcesContent: false,
+		platform: 'node',
+		outfile: 'out/viewer.js',
+		//external: ['vscode'],
+		logLevel: 'silent',
+		plugins: [
+			/* add to the end of plugins array */
+			esbuildProblemMatcherPlugin,
+		],
+	});
+}
+
+async function buildSearch(ctxMode) {
+	return esbuild.context({
+		entryPoints: ['src/www/search.ts'],
+		bundle: true,
+		format: 'iife',
+		minify: production,
+		sourcemap: !production,
+		sourcesContent: false,
+		platform: 'node',
+		outfile: 'out/search.js',
+		//external: ['vscode'],
+		logLevel: 'silent',
+		plugins: [
+			/* add to the end of plugins array */
+			esbuildProblemMatcherPlugin,
+		],
+	});
+}
+
+async function main() {
+	const extensionContext = await buildExtension();
+	const viewerContext = await buildViewer();
+	const searchContext = await buildSearch();
 	if (watch) {
-		await ctx.watch();
-	} else {
-		await ctx.rebuild();
-		await ctx.dispose();
+		await extensionContext.watch();
+		await viewerContext.watch();
+		await searchContext.watch();
+	} 
+	else {
+		await extensionContext.rebuild();
+		await viewerContext.rebuild();
+		await searchContext.rebuild();
+		await extensionContext.dispose();
+		await viewerContext.dispose();
+		await searchContext.dispose();
 	}
 }
 
