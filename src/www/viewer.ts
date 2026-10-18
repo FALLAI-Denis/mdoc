@@ -129,17 +129,24 @@ class FindWidget {
         // input 
         this.searchInput = document.createElement("input");
         this.searchInput.type = "text";
-        this.searchInput.placeholder = vscodeApi.l10n.t("Search expression");
+        //this.searchInput.placeholder = vscodeApi.l10n.t("Search expression");
+        this.searchInput.placeholder = "Search expression";
         // span
         this.resultSpan = document.createElement("span");
         this.resultSpan.classList.add("position");
-        this.resultSpan.innerHTML = vscodeApi.l10n.t("No Results");
+        //this.resultSpan.innerHTML = vscodeApi.l10n.t("No Results");
+        this.resultSpan.innerHTML = "No Results";
         // icons
-        this.optCaseSensitiveIcon = this.createIcon({ icon: "case-sensitive", class: "option case", title: vscodeApi.l10n.t("Match Case") });
-        this.optRegexIcon = this.createIcon({ icon: "regex", class: "option regex", title: vscodeApi.l10n.t("Use Regular Expression") });
-        this.prevResultIcon = this.createIcon({ icon: "arrow-up", class: "disabled action", title: vscodeApi.l10n.t("Previous match (Shift+Enter)") });
-        this.nextResultIcon = this.createIcon({ icon: "arrow-down", class: "disabled action", title: vscodeApi.l10n.t("Next match (Enter)") });
-        this.closeIcon = this.createIcon({ icon: "close", class: "action", title: vscodeApi.l10n.t("Close (Escape)") });
+        //this.optCaseSensitiveIcon = this.createIcon({ icon: "case-sensitive", class: "option case", title: vscodeApi.l10n.t("Match Case") });
+        //this.optRegexIcon = this.createIcon({ icon: "regex", class: "option regex", title: vscodeApi.l10n.t("Use Regular Expression") });
+        //this.prevResultIcon = this.createIcon({ icon: "arrow-up", class: "disabled action", title: vscodeApi.l10n.t("Previous match (Shift+Enter)") });
+        //this.nextResultIcon = this.createIcon({ icon: "arrow-down", class: "disabled action", title: vscodeApi.l10n.t("Next match (Enter)") });
+        //this.closeIcon = this.createIcon({ icon: "close", class: "action", title: vscodeApi.l10n.t("Close (Escape)") });
+        this.optCaseSensitiveIcon = this.createIcon({ icon: "case-sensitive", class: "option case", title: "Match Case" });
+        this.optRegexIcon = this.createIcon({ icon: "regex", class: "option regex", title: "Use Regular Expression" });
+        this.prevResultIcon = this.createIcon({ icon: "arrow-up", class: "disabled action", title: "Previous match (Shift+Enter)" });
+        this.nextResultIcon = this.createIcon({ icon: "arrow-down", class: "disabled action", title: "Next match (Enter)" });
+        this.closeIcon = this.createIcon({ icon: "close", class: "action", title: "Close (Escape)" });
         // input > div.input-container 
         const inputDiv = document.createElement("div");
         inputDiv.classList.add("input-container");
@@ -260,7 +267,8 @@ class FindWidget {
             this.resultSpan.textContent = `${this.resultIdx + 1} of ${this.results.length}`;
         }
         else {
-            this.resultSpan.textContent = vscodeApi.l10n.t("No Results");
+            //this.resultSpan.textContent = vscodeApi.l10n.t("No Results");
+            this.resultSpan.textContent = "No Results";
             this.currentResult = undefined;
         }
     }
