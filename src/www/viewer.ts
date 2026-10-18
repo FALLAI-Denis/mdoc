@@ -163,10 +163,7 @@ class FindWidget {
 
     setup() {
         // div.#__find
-        const body = document.getElementsByTagName("body")[0]; //.append(this.rootDiv);
-        const header = document.getElementById("__header");
-        body.appendChild(this.rootDiv);
-        header?.after(this.rootDiv);
+        const body = document.getElementsByTagName("body")[0].append(this.rootDiv);
         //
         this.closeIcon.onclick = (pointerEvent) => {
             this.close();
