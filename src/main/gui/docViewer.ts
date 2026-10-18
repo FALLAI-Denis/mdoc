@@ -317,6 +317,17 @@ export class DocViewer implements vscode.Disposable {
                         ${this.generateDocUrlHtml(document, title)}
                     </div>
                 </div>
+                <div id="__find" class="closed">
+                  <div class="input-container">
+                    <input id="__input" type="text" placeholder="${vscode.l10n.t('Search expression')}"/>
+                    <i id="__caseSensitive" class="codicon codicon-case-sensitive option case"     title="${vscode.l10n.t('Match Case')}"></i>
+                    <i id="__regex"         class="codicon codicon-regex          option regex"    title="${vscode.l10n.t('Use Regular Expression')}"></i>
+                  </div>
+                  <span id="__result" class="position">${vscode.l10n.t('No results')}</span>
+                  <i id="__prevResult"    class="codicon codicon-arrow-up       disabled action" title="${vscode.l10n.t('Previous match (Shift+Enter')}"></i>
+                  <i id="__nextResult"    class="codicon codicon-arrow-down     disabled action" title="${vscode.l10n.t('Next match (Enter)')}"></i>
+                  <i id="__close"         class="codicon codicon-close          action"          title="${vscode.l10n.t('Close (Escape)')}"></i>
+                </div>
                 <div id="__markdown-content">
                     ${markdownContent}
                 </div>
